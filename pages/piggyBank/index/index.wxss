@@ -1,0 +1,17 @@
+/* pages/piggyBank/index/index.wxss */
+
+.progress-box {
+  height: 120rpx;
+}
+
+.progress-info {
+  padding-right: 50rpx;
+}
+
+.btn-group {
+  margin-top: 100rpx;
+}
+
+.btn-main {
+  line-height: 500rpx;
+}

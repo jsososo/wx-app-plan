@@ -1,0 +1,19 @@
+<!--pages/piggyBank/calendar/calendar.wxml-->
+<view class="container w_700 mg_auto text-center">
+  <view class="title h_150">
+    <text class="w_200 inline-block" data-value="-1" bindtap="changeTimeByArrow">←</text> {{year}} 年 {{month+1}} 月
+    <text class="w_200 inline-block text-right" data-value="1" bindtap="changeTimeByArrow">→</text>
+  </view>
+  <view class="calendar">
+    <!-- 星期 -->
+    <view class="calendar-day w_100 inline-block pb_20" wx:for="{{dayArray}}" wx:key="weekday-{{index}}">
+      {{item}}
+    </view>
+    <!-- 日期 -->
+    <view class="week" wx:for="{{dateArray}}" wx:key="week-{{index}}" wx:for-item="week">
+      <view class="calendar-day pt_5 w_100 h_120 inline-block" wx:for="{{week}}" wx:key="date-{{item}}">
+        {{item === 0 ? '' : item}}
+      </view>
+    </view>
+  </view>
+</view>

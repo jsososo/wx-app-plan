@@ -1,0 +1,13 @@
+<!--pages/piggyBank/create/create.wxml-->
+<view class="container">
+  <picker mode="date" value="{{startDate}}" start="2018-01-01" data-type="startDate" bindchange="bindDateChange">
+    <view class="picker">
+      开始日期: {{startDate}}
+    </view>
+  </picker>
+  <picker mode="date" value="{{endDate}}" start="{{startDate}}" data-type="endDate" bindchange="bindDateChange">
+    <view class="picker">
+      结束日期: {{endDate}}
+    </view>
+  </picker>
+</view>

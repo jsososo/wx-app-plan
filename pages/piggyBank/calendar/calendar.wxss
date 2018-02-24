@@ -1,0 +1,9 @@
+/* pages/piggyBank/calendar/calendar.wxss */
+
+.calendar-day {
+  vertical-align: middle;
+}
+
+.title {
+  line-height: 150rpx;
+}
