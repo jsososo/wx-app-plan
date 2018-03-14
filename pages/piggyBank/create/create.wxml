@@ -1,13 +1,27 @@
 <!--pages/piggyBank/create/create.wxml-->
 <view class="container">
+  <view class="row">
+    <view class="input-label">计划名称：</view>
+    <view class="input"><input /></view>
+  </view>
   <picker mode="date" value="{{startDate}}" start="2018-01-01" data-type="startDate" bindchange="bindDateChange">
-    <view class="picker">
-      开始日期: {{startDate}}
+    <view class="row">
+      <view class="input-label">开始日期：</view>
+      <view class="input">{{startDate}}</view>
     </view>
   </picker>
   <picker mode="date" value="{{endDate}}" start="{{startDate}}" data-type="endDate" bindchange="bindDateChange">
-    <view class="picker">
-      结束日期: {{endDate}}
+    <view class="row">
+      <view class="input-label">结束日期：</view>
+      <view class="input">{{endDate}}</view>
     </view>
   </picker>
+  <view class="row">
+    <view class="input-label">目标金额：</view>
+    <view class="input"><input /></view>
+  </view>
+  <view class="row">
+    <view class="input-label">计划名称：</view>
+    <view class="input"><input /></view>
+  </view>
 </view>

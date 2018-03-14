@@ -1,9 +1,15 @@
 /* pages/list/list.wxss */
 
 .item-box {
-  margin: 10rpx 100rpx;
-  line-height: 80rpx;
-  height: 85rpx;
+  margin: 20rpx 50rpx;
+  padding: 0 50rpx;
+  line-height: 100rpx;
+  height: 100rpx;
+  border-top: 1px solid #ccc;
+}
+
+.item-box:first-child {
+  border-top: none;
 }
 
 .item-index {
@@ -11,5 +17,7 @@
 }
 
 .add-new {
-  border: 1px solid #f33;
+  border: 1px solid #3089DC;
+  background: #3089DC;
+  color: white;
 }

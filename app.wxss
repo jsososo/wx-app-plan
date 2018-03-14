@@ -1,5 +1,9 @@
 /**app.wxss**/
 
+.container {
+  color: #666;
+}
+
 .h_100 {
   height: 100rpx !important;
 }
