@@ -5,11 +5,12 @@
   padding: 0 50rpx;
   line-height: 100rpx;
   height: 100rpx;
-  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 
-.item-box:first-child {
-  border-top: none;
+.target-text {
+  float: right;
+  font-size: 28rpx;
 }
 
 .item-index {
@@ -17,6 +18,9 @@
 }
 
 .add-new {
+  position: fixed;
+  width: 550rpx;
+  bottom: 30rpx;
   border: 1px solid #3089DC;
   background: #3089DC;
   color: white;

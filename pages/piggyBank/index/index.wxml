@@ -1,14 +1,14 @@
 <!--pages/piggyBank/index/index.wxml-->
 <view class="container text-center">
   <view class="progress-box w_650 mg_auto mt_40">
-    <view class="progress-info">￥{{saved}}/100</view>
-    <progress percent="{{progress}}" stroke-width='20' show-info></progress>
-    <progress percent="{{progress}}" stroke-width='20' show-info></progress>
-    <view class="progress-info">2018.01.02 -- 2019.02.02</view>
+    <view class="progress-info">￥{{saved}}/{{total}}</view>
+    <progress percent="{{savedProgress}}" stroke-width='20' show-info></progress>
+    <progress percent="{{timeProgress}}" stroke-width='20' show-info></progress>
+    <view class="progress-info">{{start}} -- {{end}}</view>
   </view>
   <view class="btn-group">
     <view class="btn-main w_500 h_500 mg_auto br_r bg_red fc_fff">
-      打卡（存入￥12.42）
+      打卡（存入￥{{needSaved}}）
     </view>
     <view class="btn-extra">钱多接着存~</view>
   </view>

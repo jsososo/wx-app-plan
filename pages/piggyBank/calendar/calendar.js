@@ -1,5 +1,5 @@
 // pages/piggyBank/calendar/calendar.js
-import { getCalendar } from '../../../utils/util.js';
+import { getCalendar } from '../../../utils/timer.js';
 Page({
 
   /**

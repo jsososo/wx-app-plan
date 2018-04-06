@@ -4,6 +4,12 @@
     <view>
       <span class="item-index inline-block">{{index+1}}.</span>
       <span class="item-title">{{item.name}}</span>
+      <span class="target-text">
+        <span class="fc_red">{{item.expiredTime}}</span>
+        天要攒
+        <span class="fc_red">{{item.totalNum - item.savedNum}}</span>
+      </span>
+      <view></view>
     </view>
   </navigator>
   <navigator url="../piggyBank/create/create">

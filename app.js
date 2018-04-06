@@ -6,6 +6,10 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    wx.navigateTo({
+      url: './pages/list/list',
+    })
+
     // 登录
     wx.login({
       success: res => {

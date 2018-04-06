@@ -1,4 +1,6 @@
-import { getCalendar, numberAnimation } from '../../../utils/util.js';
+import { numberAnimation } from '../../../utils/util.js';
+import globalData from '../../../utils/globalData';
+import timer from '../../../utils/timer';
 // pages/piggyBank/index/index.js
 Page({
 
@@ -10,25 +12,38 @@ Page({
     saved: 0,
     start: '',
     end: '',
-    progress: 0
+    savedProgress: 0,
+    timeProgress: 0,
+    planInfo: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const planInfo = globalData.bankList[options.id];
 
+    this.setData({
+      planInfo,
+      total: planInfo.totalNum,
+      start: timer(planInfo.startTime).str('YYYY-MM-DD'),
+      end: timer(planInfo.endTime).str('YYYY-MM-DD'),
+    })
   },
 
   onShow: function () {
+    const { savedNum, totalNum, startTime, endTime } = this.data.planInfo;
+    console.log(this.data.planInfo);
+    const tPro = (timer().getTime() - timer(startTime).getTime()) / (timer(endTime).getTime() - timer(startTime).getTime());
     setTimeout(() => {
       numberAnimation((arr) => {
         this.setData({
-          progress: arr[0],
-          saved: arr[1].toFixed(2),
+          savedProgress: arr[0],
+          saved: arr[1],
+          timeProgress: arr[2],
         })
-      }, [{ from: 0, to: 30 }, { from: 0, to: 40, fix: 2 }]);
-    }, 2000);
+      }, [{ from: 0, to: savedNum * 100 / totalNum }, { from: 0, to: savedNum, fix: 2 }, { from: 0, to: tPro * 100 }]);
+    }, 500);
   },
 
   // 签到
