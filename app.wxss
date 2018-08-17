@@ -84,6 +84,14 @@
   margin: 20rpx !important;
 }
 
+.mg_30 {
+  margin: 30rpx !important;
+}
+
+.mg_40 {
+  margin: 40rpx !important;
+}
+
 .mt_5 {
   margin-top: 5rpx !important;
 }
@@ -130,6 +138,10 @@
 
 .mb_20 {
   margin-bottom: 20rpx !important;
+}
+
+.mb_30 {
+  margin-bottom: 30rpx !important;
 }
 
 .mb_40 {

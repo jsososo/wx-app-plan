@@ -1,0 +1,8 @@
+<!--pages/createUser/createUser.wxml-->
+<view class="container">
+  <view class="text-center">
+    <view>还没有账号嘞</view>
+    <button class="mt_40 w_600">关联已有账号</button>
+    <button class="mt_30 w_600">微信一键注册</button>
+  </view>
+</view>
