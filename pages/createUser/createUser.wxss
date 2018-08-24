@@ -1,1 +1,11 @@
 /* pages/createUser/createUser.wxss */
+.page-create-user .input-form {
+    line-height: 60rpx;
+    margin-top: 50rpx;
+}
+.page-create-user input {
+    border-bottom: 1px solid #1dc11d;
+    padding-top: 10rpx;
+    line-height: 100rpx;
+
+}

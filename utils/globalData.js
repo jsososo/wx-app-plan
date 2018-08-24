@@ -5,11 +5,6 @@ const globalData = {
   },
   // 用户信息
   userInfo: {
-    objectId: '',
-    openId: '',
-    avatar: '',
-    username: '',
-    wxNick: '',
     hasUser: false,
   }
 };

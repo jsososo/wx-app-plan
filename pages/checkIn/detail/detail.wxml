@@ -1,0 +1,25 @@
+<!--pages/chekIn/detail/detail.wxml-->
+<view class="container check-in-detail-page">
+  <view class="info-title">{{info.title}}</view>
+  <view class="mt_40 fc_666">{{ruleStr}}，{{thisTime}}已经打卡{{nowTimes}}次</view>
+  <view class="check-in-btn {{(nowTimes < info.times) ? 'bg-red' : (nowCheck < nowTimes ? 'bg-yellow' : 'bg-blue')}}"
+        data-key="check" bindtap="addRecord"
+    >{{nowTimes < info.times ? '打 卡' : (nowCheck < nowTimes ? '鸽子王' : '完成嘞')}}</view>
+  <view wx:if="{{nowTimes < info.times}}">
+    <button class="reason-btn">不可抗拒啊</button>
+    <button class="pass-btn">咕咕咕咕咕</button>
+  </view>
+  <navigator class="text-center fc_blue" url="../calendar/calendar">查看打卡记录</navigator>
+  <view>
+    <view class="progress">
+      <view class="bg-blue" style="width:{{historyCount.cCP}}%;"></view>
+      <view class="bg-yellow" style="width:{{historyCount.cRP}}%;"></view>
+      <view class="bg-gray" style="width:{{historyCount.cPP}}%;"></view>
+    </view>
+    <view>
+      <view>我的打卡：{{historyCount.cCheck}}【{{historyCount.cCP}}%】<view class="bg-blue w_100"></view></view>
+      <view>不可抗拒：{{historyCount.cReason}}【{{historyCount.cRP}}%】<view class="bg-yellow w_100"></view></view>
+      <view>么打卡的：{{historyCount.cPass}}【{{historyCount.cPP}}%】<view class="bg-gray w_100"></view></view>
+    </view>
+  </view>
+</view>

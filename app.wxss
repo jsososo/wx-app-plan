@@ -299,6 +299,13 @@
 .pd_20 {
   padding: 20rpx !important;
 }
+.pl_50 {
+  padding-left: 50rpx !important;
+}
+
+.pr_50 {
+  padding-right: 50rpx !important;
+}
 
 .ft_12 {
   font-size: 12rpx !important;
@@ -418,4 +425,70 @@
 
 .br_20 {
   border-radius: 20rpx !important;
+}
+
+.vat {
+  vertical-align: top;
+}
+
+.dialog-container.dialog-container-show {
+  display: block;
+}
+
+.dialog-container {
+  display: block;
+  width: 750rpx;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.dialog {
+  position: relative;
+  width: 500rpx;
+  min-height: 200rpx;
+  margin: 250rpx auto;
+  background: white;
+  border-radius: 15rpx;
+  padding-bottom: 72rpx;
+}
+
+.dialog-footer {
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid #999;
+  position: absolute;
+  bottom: 0;
+  height: 70rpx;
+  line-height: 70rpx;
+  box-sizing: border-box;
+}
+
+.dialog-content {
+  padding: 40rpx 50rpx;
+}
+
+.dialog-footer >view {
+  display: inline-block;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.dialog-cancel {
+  border-right: 1px solid #999;
+}
+
+.dialog-confirm {
+  color: #3089dc;
+}
+
+.confirm-btn {
+  background: #45a4e9;
+  color: white;
+  width: 80%;
+  margin: 0 auto;
 }

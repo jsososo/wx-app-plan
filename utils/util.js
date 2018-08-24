@@ -7,12 +7,12 @@ const formatTime = date => {
   const second = date.getSeconds()
 
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-}
+};
 
 const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
-}
+};
 
 const numberAnimation = (cb, numArr, time = 20, times = 23) => {
   setTimeout(() => {
@@ -28,7 +28,7 @@ const numberAnimation = (cb, numArr, time = 20, times = 23) => {
       numberAnimation(cb, numArr, time, times)
     }
   }, time)
-}
+};
 
 /*
 *  获得某年某月的日历
@@ -63,11 +63,47 @@ const getCalendar = (y, m) => {
 
 const shortString = (str, limited = 20) => {
   return str.length > limited ? `${str.substr(0, limited - 3)}...` : str;
-}
+};
+
+const Toast = {
+  success: (title) => wx.showToast({
+    title,
+    icon: 'success'
+  }),
+  error: (title) => wx.showToast({
+    title,
+    icon: 'loading'
+  }),
+  text: (title) => wx.showToast({
+    title,
+    icon: 'none',
+  })
+};
+
+const Loading = {
+  show: (title = '', mask = true) => wx.showLoading({
+    title,
+    mask,
+  }),
+  hide: () => wx.hideLoading(),
+};
+
+
+const Jump = {
+  redirect: (url) => wx.redirectTo({
+    url,
+  }),
+  navigateTo: (url) => wx.navigateTo({
+    url,
+  })
+};
 
 module.exports = {
-  getCalendar: getCalendar,
-  formatTime: formatTime,
-  numberAnimation: numberAnimation,
-  shortString: shortString,
+  getCalendar,
+  formatTime,
+  numberAnimation,
+  shortString,
+  Loading,
+  Toast,
+  Jump,
 }

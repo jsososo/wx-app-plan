@@ -1,0 +1,54 @@
+<!--pages/createPlan/createPlan.wxml-->
+<view class="container create-plan-page">
+  <view>
+    <view class="line">来一个打卡计划～</view>
+    <view class="form-line">
+      <view class="label">想个名儿：</view>
+      <input type="text" data-key="title" bindchange="changeValue" value="{{value.title}}" />
+    </view>
+    <view class="form-line">
+      <view class="label">开始时间：</view>
+      <picker mode="date" data-key="startTime" start="{{today}}" value="{{value.startTime}}" bindchange="changeValue">
+        <text>{{value.startTime}}</text>
+      </picker>
+    </view>
+    <view class="form-line">
+      <view class="label">结束时间：</view>
+      <picker mode="date" data-key="endTime" value="{{value.endTime}}" bindchange="changeValue">
+        <text>{{value.endTime || '----'}}</text>
+      </picker>
+    </view>
+    <view class="form-line">
+      <view class="label">打卡规则</view>
+      <view class="inline-block rule-text" bindtap="changeDialogShow">{{ruleStr}}</view>
+    </view>
+  </view>
+  <!-- 规则设置弹窗 -->
+  <view class="dialog-container {{showDialog && 'dialog-container-show'}}">
+    <view class="dialog">
+      <view class="dialog-content">
+        <view>
+          每
+          <picker class="rule-picker" mode="selector" value="{{value.timeTypeNum}}" range="{{timeTypeCNArr}}" bindchange="changeValue" data-key="timeTypeNum">
+            <text>{{timeTypeCNMap[value.timeType]}}</text>
+          </picker>
+          打卡
+        </view>
+        <view class="mt_20">
+          <view class="inline-block vat mr_20">打卡次数：</view>
+          <input type="number" value="{{value.times}}" bindchange="changeValue" data-key="times" class="times-input" />
+        </view>
+        <!-- 如果是每天提醒的，设置一个星期规则 -->
+        <view wx:if="{{value.timeType === 'D'}}" class="day-check-content">
+          <checkbox-group bindchange="changeValue" data-key="rule">
+            <checkbox color="#3089dc" wx:for="{{dayArr}}" checked="{{item.checked}}" wx:key="day-{{item.value}}" value="{{item.value}}">{{item.label}}</checkbox>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class="dialog-footer">
+        <view class="fc_blue" style="width: 100%;" bindtap="changeDialogShow">OK!</view>
+      </view>
+    </view>
+  </view>
+  <button bindtap="createPlan" class="confirm-btn mt_40">COME ON !</button>
+</view>

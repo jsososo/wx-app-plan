@@ -1,18 +1,18 @@
 <!--pages/list/list.wxml-->
 <view class="container pt_30">
-  <navigator class="item-box" url="../piggyBank/index/index?id={{item.id}}" wx:for="{{list}}" wx:key="list-{{index}}">
+  <navigator class="item-box" url="../checkIn/detail/detail?id={{item.objectId}}" wx:for="{{list}}" wx:key="list-{{index}}">
     <view>
       <span class="item-index inline-block">{{index+1}}.</span>
-      <span class="item-title">{{item.name}}</span>
-      <span class="target-text">
-        <span class="fc_red">{{item.expiredTime}}</span>
-        天要攒
-        <span class="fc_red">{{item.totalNum - item.savedNum}}</span>
-      </span>
-      <view></view>
+      <span class="item-title">{{item.title}}</span>
+      <!--<span class="target-text">-->
+        <!--<span class="fc_red">{{item.expiredTime}}</span>-->
+        <!--天要攒-->
+        <!--<span class="fc_red">{{item.totalNum - item.savedNum}}</span>-->
+      <!--</span>-->
+      <!--<view></view>-->
     </view>
   </navigator>
-  <navigator url="../piggyBank/create/create">
+  <navigator url="../createPlan/createPlan">
     <view class="item-box add-new  br_20 text-center">
       <span class="text-center">+ 添加一个新计划</span>
     </view>

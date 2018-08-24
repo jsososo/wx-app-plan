@@ -7,7 +7,7 @@
  */
 
 (function (root) {
-    var _ = require('underscore.js');
+    var _ = require('./underscore');
     var Bmob = {};
     Bmob.VERSION = "js3.6.1";
     Bmob._ = _;

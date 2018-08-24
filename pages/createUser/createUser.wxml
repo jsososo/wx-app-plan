@@ -1,8 +1,34 @@
 <!--pages/createUser/createUser.wxml-->
-<view class="container">
-  <view class="text-center">
+<view class="container page-create-user">
+  <view class="pl_50 pr_50 input-form" wx:if="{{userInfo.show}}">
+    <view class="mb_40">
+      <view class="inline-block w_150 vat">用户名：</view>
+      <input class="inline-block w_400 vat" bindinput="inputName" value="{{userInfo.nickName}}" />
+    </view>
+    <view class="mb_40">
+      <view class="inline-block w_150 vat">密码：</view>
+      <input class="inline-block w_400 vat" password bindinput="inputPass" value="{{userInfo.password}}" />
+    </view>
+    <view class="text-center">
+      <button class="inline-block" wx:if="{{!getUserInfo && mode == 'relate'}}"
+              open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
+        还是注册吧
+      </button>
+      <button class="inline-block ml_30" wx:if="{{!(!getUserInfo && mode == 'relate')}}" bindtap="changeMode">
+        {{mode == 'relate' ? '还是注册吧' : '还是关联吧'}}
+      </button>
+      <button class="inline-block ml_30" bindtap="createUser" type="primary">ok~</button>
+    </view>
+  </view>
+  <view class="text-center" wx:if="{{!userInfo.show}}">
     <view>还没有账号嘞</view>
-    <button class="mt_40 w_600">关联已有账号</button>
-    <button class="mt_30 w_600">微信一键注册</button>
+    <button class="mt_40 w_600" bindtap="changeMode">我有账号的</button>
+    <button
+      open-type="getUserInfo"
+      lang="zh_CN"
+      bindgetuserinfo="onGotUserInfo"
+      class="mt_30 w_600"
+      type="primary"
+    >一键注册～</button>
   </view>
 </view>

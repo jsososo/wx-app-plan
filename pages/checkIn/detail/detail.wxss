@@ -1,0 +1,66 @@
+/* pages/chekIn/detail/detail.wxss */
+.container {
+    padding: 40rpx;
+}
+
+.info-title {
+    line-height: 60rpx;
+    font-size: 40rpx;
+    font-weight: 900;
+    color: #999;
+    border-left: 8rpx solid #3089dc;
+    padding-left: 30rpx;
+}
+
+.check-in-btn {
+    width: 400rpx;
+    height: 400rpx;
+    margin: 40rpx auto;
+    border: 1px solid #eaeaea;
+    border-radius: 50%;
+    line-height: 400rpx;
+    font-size: 60rpx;
+    text-align: center;
+    font-weight: 900;
+    color: white;
+    white-space: pre;
+}
+
+.progress {
+    width: 100%;
+    height: 50rpx;
+    margin: 30rpx auto;
+}
+
+.progress view {
+    display: inline-block;
+    height: 50rpx;
+}
+
+.pass-btn, .reason-btn {
+    display: inline-block;
+    width: 300rpx;
+    margin: 0 17.5rpx;
+}
+
+.w_100 {
+    height: 40rpx;
+    display: inline-block;
+    float: right;
+}
+
+.bg-red {
+    background: #fc8181;
+}
+
+.bg-blue {
+    background: #65abff;
+}
+
+.bg-yellow {
+    background: #fff392;
+}
+
+.bg-gray {
+    background: #999;
+}

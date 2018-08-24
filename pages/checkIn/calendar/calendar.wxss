@@ -1,0 +1,21 @@
+/* pages/checkIn/calendar/calendar.wxss */
+.container {
+    padding: 40rpx;
+}
+
+.calendar-line {
+    padding: 0 20rpx;
+}
+
+.calendar-date {
+    display: inline-block;
+    width: 90rpx;
+    height: 90rpx;
+    vertical-align: top;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.bg-gray {
+    background: #eaeaea;
+}

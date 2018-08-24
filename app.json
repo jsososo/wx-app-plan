@@ -6,7 +6,10 @@
     "pages/piggyBank/calendar/calendar",
     "pages/list/list",
     "pages/piggyBank/create/create",
-    "pages/createUser/createUser"
+    "pages/createUser/createUser",
+    "pages/createPlan/createPlan",
+    "pages/checkIn/detail/detail",
+    "pages/checkIn/calendar/calendar"
   ],
   "window": {
     "backgroundTextStyle": "light",

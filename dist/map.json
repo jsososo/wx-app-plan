@@ -1,0 +1,16 @@
+{
+   "workspace": "/Users/jinshenou/code/wx-app-plan",
+   "dist": "/Users/jinshenou/code/wx-app-plan/dist",
+   "src": {
+      "/index.html": {
+         "requires": [],
+         "resources": []
+      }
+   },
+   "ROOTS": {},
+   "PKG": null,
+   "opts": {
+      "debug": true,
+      "prod": true
+   }
+}

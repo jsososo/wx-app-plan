@@ -1,0 +1,57 @@
+/* pages/createPlan/createPlan.wxss */
+.create-plan-page .line {
+    text-align: center;
+    color: #666;
+    font-weight: bold;
+    margin: 70rpx 0;
+}
+
+.create-plan-page .form-line {
+    padding-left: 75rpx;
+    margin-top: 20rpx;
+}
+
+.create-plan-page .label {
+    display: inline-block;
+    width: 200rpx;
+    vertical-align: top;
+    color: #666;
+}
+
+.create-plan-page input {
+    display: inline-block;
+    border-bottom: 1px solid #45A4E9;
+    width: 400rpx;
+}
+
+.create-plan-page picker {
+    display: inline-block;
+    border-bottom: 1px solid #45A4E9;
+    width: 400rpx;
+    margin-bottom: 10rpx;
+}
+
+.dialog .rule-picker {
+    width: 80rpx;
+    text-align: center;
+}
+
+.day-check-content {
+    margin-top: 10rpx;
+}
+.day-check-content checkbox {
+    display: block;
+    margin-top: 10rpx;
+}
+
+.create-plan-page .times-input {
+    display: inline-block;
+    width: 100rpx;
+    text-align: center;
+}
+
+.create-plan-page .rule-text {
+    width: 400rpx;
+    overflow: hidden;
+    border-bottom: 1px solid #45A4E9;
+}

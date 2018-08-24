@@ -1,4 +1,4 @@
-const Bmob = require('bmob/bmob.js');
+const Bmob = require('../dist/bmob/bmob.js');
 
 const saveBmob = (obj, cb, errCb) => {
   obj.save(null, {
