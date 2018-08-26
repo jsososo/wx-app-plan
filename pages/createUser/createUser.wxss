@@ -7,5 +7,12 @@
     border-bottom: 1px solid #1dc11d;
     padding-top: 10rpx;
     line-height: 100rpx;
+}
 
+.empty-text {
+    line-height: 60rpx;
+    color: #777;
+    font-weight: 900;
+    text-align: center;
+    margin-top: 40rpx;
 }

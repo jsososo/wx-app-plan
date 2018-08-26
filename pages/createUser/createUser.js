@@ -94,7 +94,7 @@ Page({
               (res) => {
                 newUser.objectId = res.objectId;
                 globalData.userInfo = newUser;
-                Jump.redirect('/page/list/list');
+                Jump.redirect('../list/list');
               }
             )
           }
@@ -123,6 +123,7 @@ Page({
                 Storage.setBmob('_User', u.objectId, {
                   wxOpenId: globalData.userInfo.wxOpenId
                 });
+                Jump.redirect('../list/list')
               },
               error: () => {
                 Toast.error('出问题了～')
