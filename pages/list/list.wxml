@@ -1,5 +1,6 @@
 <!--pages/list/list.wxml-->
 <view class="container pt_30">
+  <view class="empty-text" wx:if="{{list.length === 0}}">空空如也，去创建个吧</view>
   <navigator class="item-box" url="../checkIn/detail/detail?id={{item.objectId}}" wx:for="{{list}}" wx:key="list-{{index}}">
     <view>
       <span class="item-index inline-block">{{index+1}}.</span>
@@ -12,7 +13,7 @@
       <!--<view></view>-->
     </view>
   </navigator>
-  <navigator url="../createPlan/createPlan">
+  <navigator url="../createPlan/createPlan" class="add-new-box">
     <view class="item-box add-new  br_20 text-center">
       <span class="text-center">+ 添加一个新计划</span>
     </view>

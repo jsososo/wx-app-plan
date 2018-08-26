@@ -1,1 +1,6 @@
-{}
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#3089dc",
+  "navigationBarTitleText": "计划列表",
+  "navigationBarTextStyle": "white"
+}

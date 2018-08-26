@@ -1,1 +1,6 @@
-{}
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#3089dc",
+  "navigationBarTitleText": "来个打卡的",
+  "navigationBarTextStyle": "white"
+}

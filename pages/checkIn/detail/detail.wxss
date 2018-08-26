@@ -43,6 +43,14 @@
     margin: 0 17.5rpx;
 }
 
+.pass-btn {
+    background: #ffe6eb;
+}
+
+.reason-btn {
+    background: #faffd7;
+}
+
 .w_100 {
     height: 40rpx;
     display: inline-block;
@@ -58,9 +66,15 @@
 }
 
 .bg-yellow {
-    background: #fff392;
+    background: #efe95d;
 }
 
 .bg-gray {
     background: #999;
+}
+
+.status-text {
+    color: #999;
+    font-size: 40rpx;
+    margin: 40rpx 0;
 }

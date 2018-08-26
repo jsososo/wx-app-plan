@@ -1,4 +1,15 @@
 /* pages/list/list.wxss */
+.container {
+  padding-bottom: 150rpx;
+}
+
+.empty-text {
+  line-height: 60rpx;
+  color: #777;
+  font-weight: 900;
+  text-align: center;
+  margin-top: 40rpx;
+}
 
 .item-box {
   margin: 20rpx 50rpx;
@@ -17,10 +28,14 @@
   width: 70rpx;
 }
 
-.add-new {
+.add-new-box {
   position: fixed;
+  bottom: 0;
+  background: white;
+}
+.add-new {
   width: 550rpx;
-  bottom: 30rpx;
+  margin-bottom: 30rpx;
   border: 1px solid #3089DC;
   background: #3089DC;
   color: white;

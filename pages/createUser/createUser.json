@@ -1,1 +1,6 @@
-{}
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#3089dc",
+  "navigationBarTitleText": "账号关联",
+  "navigationBarTextStyle": "white"
+}

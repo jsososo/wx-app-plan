@@ -18,6 +18,7 @@ Page({
     thisTime: '',
     nowKey: '',
     nowTimes: 0,
+    status: 0, // 这个计划的状态：（0：正常；  1：未开始；  2：已结束；  3：规则外）
     historyCount: {
       allTimes: 1,
       cCheck: 0,
@@ -45,6 +46,10 @@ Page({
   // 处理接口请求的拿到的数据
   handleData(value) {
     let ruleStr = '';
+    let status = 0;
+    const today = timer();
+    const sT = timer(value.startTime, 'YYYY-MM-DD').time;
+    const eT = value.endTime ? timer(value.endTime, 'YYYY-MM-DD').time : 9999999999999;
     if (value.timeType !== 'D') {
       ruleStr = `每${timeTypeCNMap[value.timeType]}${value.times}次`;
     } else {
@@ -64,6 +69,13 @@ Page({
     const nowKey = getTimeKey(value.timeType);
     const historyCount = this.getHistoryCount(value);
     globalData.checkInfo = value;
+    if (sT > today.time) {
+      status = 1;
+    } else if (eT && eT < today.time) {
+      status = 2;
+    } else if (value.timeType === 'D' && value.rule.indexOf(String(today.day.value)) === -1) {
+      status = 3;
+    }
     Loading.hide();
     this.setData({
       info: value,
@@ -72,44 +84,60 @@ Page({
       thisTime: thisTimeCNMap[value.timeType],
       nowKey,
       nowCheck: value.record[nowKey] ? value.record[nowKey].check : 0,
+      nowPass: value.record[nowKey] ? value.record[nowKey].pass : 0,
       nowTimes: value.record[nowKey] ? (value.record[nowKey].check + value.record[nowKey].reason + value.record[nowKey].pass) : 0,
       historyCount,
+      status,
     })
   },
 
   // 显示底部的一些历史统计
   getHistoryCount(info) {
     const type = info.timeType;
-    const dCount = Abs(timer().to(timer(info.startTime), 'num', 2)) + 1;
-    const mCount = Abs(timer().to(timer(info.startTime), 'num', 1)) + 1;
+    const today = timer();
+    console.log(today.str());
+    const sT = timer(info.startTime, 'YYYY-MM-DD');
+    const dCount = Abs(today.to(timer(info.startTime), 'num', 2)) + 1;
+    const mCount = Abs(today.to(timer(info.startTime), 'num', 1)) + 1;
     let cCheck = 0;
     let cReason = 0;
+    let cPass = 0;
     let allTimes = 0;
 
     Object.keys(info.record).forEach((k) => {
       cCheck += info.record[k].check || 0;
-      cReason += info.record[k].pass || 0;
+      cReason += info.record[k].reason || 0;
+      cPass += info.record[k].pass || 0;
     });
     if (type === 'D') {
       allTimes = dCount * info.times;
     } else if (type === 'M') {
       allTimes = mCount * info.times;
     } else if (type === 'W') {
-      allTimes = Num(dCount / 7, 0, 1) * info.times;
+      // 周有关的计算
+      if (sT.week() === today.week()) {
+        allTimes = info.times;
+      } else {
+        // 按照自然周计算，不按时间间隔计算。这里注意一下
+        allTimes = Num(((dCount - 8 + sT.day.value) / 7) + 1, 0, 1) * info.times;
+      }
     }
-    const cPass = allTimes - cCheck - cReason;
+    const cRes = allTimes - cCheck - cReason - cPass;
     return {
       cCheck,
       cReason,
       cPass,
+      cRes,
       allTimes,
       cCP: Num(cCheck / allTimes * 100, 2),
       cRP: Num(cReason / allTimes * 100, 2),
       cPP: Num(cPass / allTimes * 100, 2),
+      cResP: Num(cRes / allTimes * 100, 2),
     }
   },
 
   getInfo(id) {
+    Loading.show();
     Storage.queryBmob(
       'CheckIn',
       (q) => {
@@ -126,7 +154,7 @@ Page({
 
   // 打卡记录（包括打卡、咕咕咕、不可抗拒）
   addRecord(e) {
-    const { info, nowKey, id } = this.data;
+    const { info, nowKey, id, status } = this.data;
     if (!info.record[nowKey]) {
       info.record[nowKey] = {
         check: 0,
@@ -135,7 +163,7 @@ Page({
       }
     }
     const rObj = info.record[nowKey];
-    if ((rObj.check + rObj.reason + rObj.pass) === info.times) {
+    if ((rObj.check + rObj.reason + rObj.pass) === info.times || status !== 0) {
       return;
     }
     Loading.show();
