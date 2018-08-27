@@ -92,7 +92,7 @@ Page({
               '_User',
               newUser,
               (res) => {
-                newUser.objectId = res.objectId;
+                newUser.objectId = res.id;
                 globalData.userInfo = newUser;
                 Jump.redirect('../list/list');
               }
@@ -123,6 +123,7 @@ Page({
                 Storage.setBmob('_User', u.objectId, {
                   wxOpenId: globalData.userInfo.wxOpenId
                 });
+                globalData.userInfo = u;
                 Jump.redirect('../list/list')
               },
               error: () => {

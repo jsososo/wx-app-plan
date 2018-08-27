@@ -21,7 +21,7 @@
     </view>
   </view>
   <view class="text-center" wx:if="{{!userInfo.show}}">
-    <view class="empty-text">还没有账号嘞</view>
+    <view class="empty-text">还没有soso网站的账号嘞</view>
     <button class="mt_40 w_600" bindtap="changeMode">我有账号的</button>
     <button
       open-type="getUserInfo"
