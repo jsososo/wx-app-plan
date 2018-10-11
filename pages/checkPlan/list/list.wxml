@@ -1,0 +1,57 @@
+<!--pages/list/list.wxml-->
+<view class="container pt_30">
+  <view class="empty-text" wx:if="{{!list.length && !closeList.length }}">
+    <image mode="widthFix" style="width: 300rpx;" src="../../../dist/img/empty.png" />
+    <navigator url="../create/index" class="add-new-first">
+      <span class="text-center">创建一个打卡呗</span>
+    </navigator>
+  </view>
+  <view class="now-list">
+    <view class="sub-title" wx:if="{{closeList.length}}">此刻</view>
+    <view class="item-box"
+          data-id="{{item.objectId}}"
+          bindlongpress="goToDetail"
+          bindtap="showCheckDialog"
+          wx:for="{{list}}"
+          wx:key="list-{{index}}">
+      <view>
+        <image class="item-icon" src="../../../dist/img/icon{{item.lastEdit == today ? '-check' : ''}}/icon-{{item.icon || 1}}.png" />
+        <view class="item-title">{{item.title}}</view>
+      </view>
+    </view>
+    <navigator wx:if="{{list.length || closeList.length}}" url="../create/index" class="item-box add-new">
+      <view>
+        <span class="text-center">+</span>
+      </view>
+    </navigator>
+  </view>
+  <view class="close-list" wx:if="{{closeList.length}}">
+    <view class="sub-title">往日</view>
+    <view class="item-box"
+          data-id="{{item.objectId}}"
+          bindlongpress="goToDetail"
+          wx:for="{{closeList}}"
+          wx:key="list-{{index}}">
+      <view>
+        <image class="item-icon" src="../../../dist/img/icon/icon-{{item.icon || 1}}.png" />
+        <view class="item-title">{{item.title}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="check-dialog-container" wx:if="{{checkId}}">
+    <view class="check-dialog">
+      <span class="iconfont icon-close" bindtap="closeCheckDialog"></span>
+      <view>
+        <view class="inline-block">{{checkTime}}</view>
+      </view>
+      <view>
+        <textarea bindinput="changeCheckVal" value="{{checkVal}}" placeholder="记录点啥不。。" />
+      </view>
+      <view class="check-btn" bindtap="addCheck">
+        {{isChecked ? '更新' : '打卡' }}
+        <span class="iconfont icon-fasong pl_10" />
+      </view>
+    </view>
+  </view>
+</view>

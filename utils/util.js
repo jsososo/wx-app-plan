@@ -30,49 +30,19 @@ const numberAnimation = (cb, numArr, time = 20, times = 23) => {
   }, time)
 };
 
-/*
-*  获得某年某月的日历
-*
-*  @params y: 年份（fullYear）
-*  @params m: 月份（0-11）
-* */
-const getCalendar = (y, m) => {
-  const D = new Date();
-  // 空白的一周
-  const emptyWeek = new Array(7);
-  emptyWeek.fill(0);
-  // 最后输出的日历
-  const C = [];
-  // 初始化日期
-  D.setYear(y);
-  D.setMonth(m);
-  D.setDate(1);
-  do {
-    emptyWeek[D.getDay()] = D.getDate();
-    if (D.getDay() === 6) {
-      C.push([...emptyWeek]);
-      emptyWeek.fill(0);
-    }
-    D.setDate(D.getDate() + 1);
-  } while (D.getMonth() === m);
-  if (emptyWeek.join('') !== '0000000') {
-    C.push(emptyWeek);
-  }
-  return C;
-};
-
 const shortString = (str, limited = 20) => {
   return str.length > limited ? `${str.substr(0, limited - 3)}...` : str;
 };
 
 const Toast = {
-  success: (title) => wx.showToast({
+  success: (title = 'ok~') => wx.showToast({
     title,
     icon: 'success'
   }),
-  error: (title) => wx.showToast({
+  error: (title = '出错啦') => wx.showToast({
     title,
-    icon: 'loading'
+    icon: 'loading',
+    // image: '../dist/img/nodata.png'
   }),
   text: (title) => wx.showToast({
     title,
@@ -90,16 +60,13 @@ const Loading = {
 
 
 const Jump = {
-  redirect: (url) => wx.redirectTo({
-    url,
-  }),
-  navigateTo: (url) => wx.navigateTo({
-    url,
-  })
+  redirect: (url) => wx.redirectTo({ url }),
+  navigateTo: (url, success, fail, complete) => wx.navigateTo({ url, success, fail, complete }),
+  switchTab: (url, success, fail, complete) => wx.switchTab({ url, success, fail, complete }),
+  navigateBack: (delta) => wx.navigateBack({ delta }),
 };
 
 module.exports = {
-  getCalendar,
   formatTime,
   numberAnimation,
   shortString,

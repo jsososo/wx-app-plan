@@ -1,0 +1,19 @@
+<!--pages/createPlan/createPlan.wxml-->
+<view class="container create-plan-page">
+  <view>
+    <view class="line">{{create ? '来一个打卡计划～' : '改一哈改一哈'}}</view>
+    <view class="form-line">
+      <view class="label">{{create ? '起' : '换'}}个名儿：</view>
+      <input maxlength="10" type="text" data-key="title" bindchange="changeValue" value="{{value.title}}" />
+    </view>
+    <view class="form-line">
+      <view>从下面挑个图标吧～</view>
+    </view>
+    <view class="icon-list">
+      <view class="icon-item" wx:for="{{iconList}}" wx:key="icon-{{index}}" bindtap="selectIcon" data-val="{{index + 1}}">
+        <image mode="widthFix" src="../../../dist/img/icon{{value.icon == (index+1) ? '-check' : ''}}/icon-{{index+1}}.png" />
+      </view>
+    </view>
+  </view>
+  <button bindtap="createPlan" class="confirm-btn mb_40">{{create ? 'COME ON !' : '改掉 ！'}}</button>
+</view>

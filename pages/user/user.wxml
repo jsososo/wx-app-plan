@@ -1,0 +1,34 @@
+<!--pages/user/user.wxml-->
+<view class="text-center">
+  <image class="user-avatar {{userInfo.avatar || 'empty-avatar'}}" mode="widthFix" src="{{userInfo.avatar || '../../dist/img/tab-2.png'}}" />
+  <block wx:if="{{!isEdit}}">
+    <view>{{userInfo.username}}</view>
+    <view class="edit-btn" bindtap="editUser" wx:if="{{!userInfo.hasUser}}">修改信息</view>
+    <view class="more">
+      <view>pc访问 jsososo.com，获取更多小工具</view>
+      <view>小程序更多敬请期待哟</view>
+    </view>
+  </block>
+  <block wx:if="{{isEdit}}">
+    <view>
+      昵称：<input type="text" bindinput="inputName" value="{{bindUser.nick}}" />
+    </view>
+    <view class="mt_20">
+      密码：<input password bindinput="inputPass" />
+    </view>
+    <view class="btn-container mt_30">
+      <view class="btn-item btn-sub btn-cancel" bindtap="cancelEdit">取消</view>
+      <view class="btn-item btn-sub btn-save" bindtap="saveUser">保存</view>
+      <button
+        class="btn-item mt_20"
+        open-type="getUserInfo"
+        lang="zh_CN"
+        bindgetuserinfo="onGotUserInfo"
+        style="width: 90%;"
+        type="primary"
+      >头像昵称一键注入～</button>
+    </view>
+    <view class="more">昵称、密码可用于登陆 jsososo.com 哟</view>
+    <view class="more">如果已有账号，绑定即可</view>
+  </block>
+</view>

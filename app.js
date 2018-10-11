@@ -8,6 +8,9 @@ Bmob.initialize(...BmobInfo);
 bmob.initialize(...BmobInfo);
 App({
   onLaunch: function () {
+    // Bmob.generateCode({ path: 'path', width: 140, type: 1 }).then(function (res) {
+    //   console.log(res);
+    // })
     // 获取用户信息
     wx.getSetting({
       success: res => {

@@ -1,0 +1,95 @@
+/* pages/checkPlan/detail/index.wxss */
+.title {
+  color: #666;
+  font-size: 50rpx;
+  margin: 40rpx 0 20rpx 40rpx;
+}
+.check-count {
+  margin-left: 40rpx;
+}
+
+.log-list {
+  margin-left: 30rpx;
+  margin-top: 40rpx;
+}
+
+.log-item {
+  border-left: 6rpx solid #65abff;
+  position: relative;
+  min-height: 70rpx;
+  margin-left: 30rpx;
+  padding-top: 15rpx;
+}
+.item-time {
+  color: #65abff;
+  opacity: 0.7;
+  font-weight: 900;
+  font-size: 36rpx;
+  padding-left: 30rpx;
+}
+.item-content {
+  margin-left: 30rpx;
+  color: #999;
+}
+.item-circle {
+  border: 6rpx solid #65abff;
+  width: 18rpx;
+  height: 18rpx;
+  background: white;
+  position: absolute;
+  left: -15rpx;
+  top: 25rpx;
+  border-radius: 50%;
+}
+.bottom-btn {
+  height: 120rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 20rpx;
+  background: white;
+}
+.btn-stop {
+  border: 1px solid #f23c3c;
+  color: #f23c3c;
+  width: 80%;
+  margin: 20rpx auto;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 40rpx;
+  border-radius: 20rpx;
+  text-align: center;
+}
+
+.closed-icon {
+  color: #f23c3c;
+  border: 1px solid #f23c3c;
+  padding: 5rpx;
+  font-size: 20rpx;
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -o-transform: rotate(40deg);
+  transform: rotate(40deg);
+}
+
+.btn-reopen, .btn-del {
+  width: 40%;
+  margin: 20rpx 5%;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  font-size: 40rpx;
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+}
+
+.btn-del {
+  background: #f23c3c;
+}
+
+.btn-reopen {
+  background: #3089DC;
+}

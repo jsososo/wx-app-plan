@@ -121,7 +121,7 @@ const Timer = (v = new Date(), strType) => {
         result = '刚刚';
       }
     } else if (output === 'num') {
-      return [result[start]] * (p ? -1 : 1);
+      return result[start];
     }
     return result;
   };

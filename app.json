@@ -1,20 +1,35 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/piggyBank/index/index",
-    "pages/piggyBank/calendar/calendar",
-    "pages/list/list",
-    "pages/piggyBank/create/create",
     "pages/createUser/createUser",
-    "pages/createPlan/createPlan",
-    "pages/checkIn/detail/detail",
-    "pages/checkIn/calendar/calendar"
+    "pages/checkPlan/list/list",
+    "pages/checkPlan/create/index",
+    "pages/checkPlan/detail/index",
+    "pages/user/user"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3089dc",
     "navigationBarTitleText": "so计划",
     "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#3089dc",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/checkPlan/list/list",
+        "text": "打卡",
+        "iconPath": "dist/img/tab-1.png",
+        "selectedIconPath": "dist/img/tab-s-1.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我",
+        "iconPath": "dist/img/tab-2.png",
+        "selectedIconPath": "dist/img/tab-s-2.png"
+      }
+    ]
   }
 }

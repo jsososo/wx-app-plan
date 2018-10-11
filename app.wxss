@@ -1,4 +1,5 @@
 /**app.wxss**/
+@import 'dist/style/icon/iconfont.wxss';
 
 .container {
   color: #666;

@@ -3,6 +3,7 @@
 import Storage from "../../utils/Storage";
 import globalData from "../../utils/globalData";
 import Bmob from "../../dist/bmob/Bmob-1.6.3.min";
+import { Jump } from "../../utils/util";
 
 Page({
   data: {
@@ -21,14 +22,11 @@ Page({
           if (user) {
             globalData.userInfo = user;
             globalData.userInfo.hasUser = true;
-            wx.redirectTo({
-              url: '/pages/list/list',
-            })
           } else {
-            wx.redirectTo({
-              url: '/pages/createUser/createUser',
-            })
+            globalData.userInfo = res;
+            globalData.userInfo.hasUser = false;
           }
+          Jump.switchTab('/pages/checkPlan/list/list');
         }
       )
     });
