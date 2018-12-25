@@ -1,0 +1,65 @@
+<!--pages/aaList/detail/detail.wxml-->
+<view class="warning-info top-info">
+  <icon type="info" color="#ffa033" />
+  <text>长按小项可删除</text>
+</view>
+<view class="base-info">
+  <view class="title">{{detail.title}}</view>
+  <view class="balance-str">{{balanceStr}}</view>
+</view>
+<view class="single-user" wx:for="{{info}}" wx:key="{{item.name}}">
+  <view>
+    <text class="list-u-name">{{item.name}}</text>
+    <text class="list-total">¥{{item.total}}</text>
+    <text class="list-add" data-name="{{item.name}}" bindtap="showDialog">+</text>
+  </view>
+  <view class="record-list {{item.showMore ? 'show' : 'hide'}}">
+    <view class="record-item"
+          wx:for="{{item.list}}"
+          wx:for-item="record"
+          wx:key="{{record.time}}"
+          wx:if="{{!record.del}}"
+          data-name="{{item.name}}"
+          data-time="{{record.time}}"
+          bindlongpress="delItem"
+    >
+      <view class="record-item-desc">{{record.desc}}</view>
+      <view class="record-item-num">{{record.num}}</view>
+    </view>
+  </view>
+  <view
+    bindtap="showMore"
+    data-name="{{item.name}}"
+    class="btn-more iconfont {{item.showMore ? 'icon-xiangshangjiantou': 'icon-xiangxiajiantou'}}"
+  ></view>
+  <view class="dialog-container" wx:if="{{showDialog}}">
+    <view class="dialog">
+      <span class="iconfont icon-close" bindtap="closeDialog"></span>
+      <view class="input-row mb_30">
+        <view class="input-type {{inputType === 'add' && 'selected'}}" data-val="add" bindtap="changeInputType">记账</view>
+        <view class="input-type {{inputType === 'trans' && 'selected'}}" data-val="trans" bindtap="changeInputType">转账</view>
+      </view>
+      <view class="input-row" wx:if="{{inputType === 'trans'}}">
+        <view class="input-label">转给</view>
+        <picker
+          bindchange="changeTransTo"
+          value="{{transTo}}"
+          range="{{userList}}"
+        >
+          <view class="trans-picker-val">{{userList[transTo]}}</view>
+        </picker>
+      </view>
+      <view class="input-row" wx:if="{{inputType === 'add'}}">
+        <view class="input-label">备注：</view>
+        <input type="text" bindinput="inputVal" data-key="desc" value="{{inputVal.desc}}"/>
+      </view>
+      <view class="input-row">
+        <view class="input-label">金额：</view>
+        <input type="number" bindinput="inputVal" data-key="num" value="{{inputVal.num}}"/>
+      </view>
+      <view class="confirm-btn mt_30" bindtap="onTapAdd">
+        O K ！
+      </view>
+    </view>
+  </view>
+</view>

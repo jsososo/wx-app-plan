@@ -1,4 +1,8 @@
 <!--pages/list/list.wxml-->
+<view class="warning-info top-info" wx:if="{{list.length || closeList.length}}">
+  <icon type="info" color="#ffa033" />
+  <text>长按可进入打卡详情</text>
+</view>
 <view class="container pt_30">
   <view class="empty-text" wx:if="{{!list.length && !closeList.length }}">
     <image mode="widthFix" style="width: 300rpx;" src="../../../dist/img/empty.png" />
@@ -39,8 +43,8 @@
     </view>
   </view>
 
-  <view class="check-dialog-container" wx:if="{{checkId}}">
-    <view class="check-dialog">
+  <view class="dialog-container" wx:if="{{checkId}}">
+    <view class="dialog">
       <span class="iconfont icon-close" bindtap="closeCheckDialog"></span>
       <view>
         <view class="inline-block">{{checkTime}}</view>

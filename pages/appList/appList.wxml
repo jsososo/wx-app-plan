@@ -1,0 +1,15 @@
+<!--pages/appList/appList.wxml-->
+<view class="mt_20">
+  <navigator
+    wx:for="{{appList}}"
+    wx:key="{{item.objectId}}"
+    wx:if="{{item.wxUrl}}"
+    class="app-list-item"
+    url="../{{item.wxUrl}}"
+  >
+    <view class="app-list-img" style="background: {{item.color}}">
+      <image src="https:{{item.img}}" style="width: {{item.imgSize || 100}}%; height: {{item.imgSize || 100}}%; margin: {{item.imgSize ? (50 - item.imgSize / 2) : 0}}% {{item.imgSize ? (50 - item.imgSize / 2) : 0}}%" />
+    </view>
+    <view class="app-list-name">{{item.name}}</view>
+  </navigator>
+</view>

@@ -1,0 +1,5 @@
+<!--pages/aaList/index/index.wxml-->
+<navigator url="../detail/detail?id={{item.objectId}}" wx:for="{{list}}" wx:key="{{item.objectId}}" class="aa-item">
+  {{item.title}}
+  <text class="sub-info">{{item.users.length}}人账本</text>
+</navigator>

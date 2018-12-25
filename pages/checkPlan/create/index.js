@@ -45,7 +45,7 @@ Page({
     const { value } = this.data;
     value.userId = globalData.userInfo.objectId;
     if (!value.title) {
-      Toast.error('名字还没起');
+      Toast.error('名字还没起', 3);
       return;
     }
     if (value.objectId) {

@@ -5,7 +5,10 @@
     "pages/checkPlan/list/list",
     "pages/checkPlan/create/index",
     "pages/checkPlan/detail/index",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/appList/appList",
+    "pages/aaList/index/index",
+    "pages/aaList/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,6 +26,12 @@
         "text": "打卡",
         "iconPath": "dist/img/tab-1.png",
         "selectedIconPath": "dist/img/tab-s-1.png"
+      },
+      {
+        "pagePath": "pages/appList/appList",
+        "text": "宝贝",
+        "iconPath": "dist/img/tab-app.png",
+        "selectedIconPath": "dist/img/tab-app-s.png"
       },
       {
         "pagePath": "pages/user/user",

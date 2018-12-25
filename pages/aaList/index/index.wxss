@@ -1,0 +1,13 @@
+/* pages/aaList/index/index.wxss */
+.aa-item {
+    color: #666;
+    font-size: 38rpx;
+    padding: 30rpx 40rpx;
+    border-bottom: 1px solid #eaeaea;
+}
+.sub-info {
+    color: #aaa;
+    font-size: 30rpx;
+    float: right;
+    padding-top: 10rpx;
+}

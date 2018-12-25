@@ -107,7 +107,7 @@ Page({
       },
       () => {
         Loading.hide();
-        Toast.error('出了点错');
+        Toast.error('出了点错', 3);
       }
     )
   },

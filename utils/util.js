@@ -39,10 +39,10 @@ const Toast = {
     title,
     icon: 'success'
   }),
-  error: (title = '出错啦') => wx.showToast({
+  error: (title = '出错啦', n = 2) => wx.showToast({
     title,
     icon: 'loading',
-    // image: '../dist/img/nodata.png'
+    image: `${new Array(n).fill('..').join('/')}dist/error.png`,
   }),
   text: (title) => wx.showToast({
     title,
